@@ -2,24 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
-# import re
 from youtube_search import YoutubeSearch
 
 
 
 load_dotenv()
 imdb_api_key = os.getenv('API_KEY')
-
-# def google(query):
-#     url = f"https://www.google.com/search?q={query}"
-#     headers = {"User-Agent": "Mozilla/5.0"}
-#     response = requests.get(url, headers = headers, timeout = 10)
-#     soup = BeautifulSoup(response.text, "html.parser")
-#
-#     for link in soup.find_all("a", href=True):
-#         if "url?q=" in link["href"]:
-#             return link["href"].split("url?q=")[1].split("&")[0]
-#     return "No results found."
 
 def omdb(movie_name):
     url = f"https://www.omdbapi.com/?t={movie_name} & apikey = {imdb_api_key}"
@@ -34,17 +22,6 @@ def omdb(movie_name):
             "Plot": data["Plot"]
         }
     return "Movie not found."
-
-# def youtube(query):
-#     url = f"https://www.youtube.com/results?search_query={query}"
-#     headers = {"User-Agent": "Mozilla/5.0"}
-#     response = requests.get(url, headers = headers, timeout = 10)
-#
-#     video_ids = re.findall(r'"videoId":"([a-zA-Z0-9_-]{11})"', response.text)
-#     if video_ids:
-#         return f"https://www.youtube.com/watch?v={video_ids[0]}"
-#     return "No results found."
-
 
 def youtube(query):
     results = YoutubeSearch(f"{query} trailer", max_results=1).to_dict()
