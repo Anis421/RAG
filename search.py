@@ -22,7 +22,7 @@ imdb_api_key = os.getenv('API_KEY')
 #     return "No results found."
 
 def omdb(movie_name):
-    url = f"https://www.omdbapi.com/?t={movie_name}&apikey={imdb_api_key}"
+    url = f"https://www.omdbapi.com/?t={movie_name} & apikey = {imdb_api_key}"
     response = requests.get(url)
     data = response.json()
 
