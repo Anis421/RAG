@@ -1,6 +1,5 @@
 import streamlit as st
 from search import omdb, youtube_trailer
-from ai_integration import rag_response
 
 st.title("RAG")
 
