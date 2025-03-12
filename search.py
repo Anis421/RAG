@@ -5,7 +5,6 @@ import os
 from youtube_search import YoutubeSearch
 
 
-
 load_dotenv()
 imdb_api_key = os.getenv('API_KEY')
 
